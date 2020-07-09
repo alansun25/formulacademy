@@ -1,2 +1,2 @@
-# vandyhacks
+# VandyHacks
 VandyHacks - Summer Edition
