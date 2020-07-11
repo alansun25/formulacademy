@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+nav, body {
+  background-color: #66a4e6;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.name {
+  font-weight: bold;
+  color: #66a4e6;
+}
+
+.desc {
+  width: 75%;
+  margin: 10% auto;
+}
+
+.btn:hover {
+  color: #66a4e6;
+}
+
+.navbar-toggler-icon {
+  color: #66a4e6;
+}
+
+hr {
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  height: 1px;
+}
+
+footer {
+  position: fixed;
+  background-color: #66a4e6;
+  margin-bottom: 1%;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 16px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+  * {
+    font-size: 12px;
+  }
+
+  .text-fix {
+    font-size: 20px;
+  }
+
+  .desc {
+    width: 80%;
+    margin: 10% auto;
+  }
+}
+@media (max-width: 576px) {
+  * {
+    font-size: 10px;
+  }
+
+  .text-fix {
+    font-size: 20px;
+  }
+
+  .desc {
+    width: 100%;
+    margin: 10% auto;
+  }
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
