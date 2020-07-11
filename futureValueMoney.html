@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title> Future Value of the investment </title>
+  <script>
+    function futureValue() {
+      var i = document.getElementById("Box1").value;
+      var j = document.getElementById("Box2").value;
+      var z = document.getElementById("Box3").value;
+      var y= document.getElementById("Box4").value;
+      var ans = i* (Math.pow(1+(j/100/y), z*y));
+      document.getElementById('answer').textContent = ans;
+      document.getElementById('Box1').value = '';
+      document.getElementById('Box2').value='';
+      document.getElementById('Box3').value='';
+      document.getElementById('Box4').value='';
+    }
+  </script>
+</head>
+
+<body>
+  <p>The time value of money is a basic financial concept that holds that money in the present is worth more than the same sum of money to be received in the future.
+      This is a specific formula can be used for calculating the future value of money so that it can be compared to the present value </p>
+  <p>Enter the present value of the investment</p>
+  <input type='number' id='Box1' step='0.000001' />
+  <p>Enter the interest rate in percentage (%)</p>
+  <input type='number' id='Box2' step='0.000001' />
+  <p>Enter the number of years to take into consideration</p>
+  <input type='number' id='Box3' step='0.000001' />
+  <p>Enter the number of compounding periods of interest per year</p>
+  <input type='number' id='Box4' step='0.000001' />
+  <button onClick='futureValue()'>Calculate</button>
+  <p>Result: <span id='answer'></span></p>
+</body>
+
+</html>
