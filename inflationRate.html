@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Inflation Rate </title>
+  <script>
+    function inflationRate() {
+      var i = document.getElementById("Box1").value;
+      var j = document.getElementById("Box2").value;
+      var ans = (j-i)/i*100;
+      document.getElementById('answer').textContent = ans;
+      document.getElementById('Box1').value = '';
+      document.getElementById('Box2').value='';
+    }
+  </script>
+</head>
+
+<body>
+  <p>Inflation is a quantitative measure of the rate at which the average price level of 
+      a basket of selected goods and services in an economy increases over some period of time.
+      Most commonly used inflation indexes are the Consumer Price Index (CPI) and the Wholesale
+       Price Index (WPI).</p>
+  <p>Enter the initial CPI index value</p>
+  <input type='number' id='Box1' step='0.000001' />
+  <p>Enter the final CPI index value</p>
+  <input type='number' id='Box2' step='0.000001' />
+  <button onClick='inflationRate()'>Calculate</button>
+  <p>Result in percentage: <span id='answer'> </span></p>
+</body>
+
+</html>
