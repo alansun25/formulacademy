@@ -9,6 +9,17 @@ nav, body {
   background-color: #66a4e6;
 }
 
+.navbar {
+  border-bottom: 1.5px solid white;
+  width: 99%;
+  margin: 0 auto;
+}
+
+.home {
+  position: relative;
+  min-height: 88vh;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -19,9 +30,10 @@ nav, body {
   color: #66a4e6;
 }
 
-.desc {
+.content {
   width: 75%;
   margin: 10% auto;
+  padding-bottom: 3.5rem;
 }
 
 .btn:hover {
@@ -40,13 +52,13 @@ hr {
 }
 
 footer {
-  position: fixed;
   background-color: #66a4e6;
-  margin-bottom: 1%;
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
+  height: 3.5rem;
 }
 
 .footer-text {
@@ -70,7 +82,7 @@ footer {
     font-size: 20px;
   }
 
-  .desc {
+  .content {
     width: 80%;
     margin: 10% auto;
   }
@@ -84,7 +96,7 @@ footer {
     font-size: 20px;
   }
 
-  .desc {
+  .content {
     width: 100%;
     margin: 10% auto;
   }
