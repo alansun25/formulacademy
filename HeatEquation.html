@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Heat Equation</title>
+  <script>
+    function heatEquation() {
+      var answer;
+      var heat = document.getElementById("heatBox").value;
+      var mass = document.getElementById("massBox").value;
+      var specificHeat = document.getElementById("specificHeatBox").value;
+      var deltaT = document.getElementById("deltaTBox").value;
+
+      if (heat.trim() == '' && mass.trim() != ''
+      && specificHeat.trim() != '' && deltaT.trim() != '') {
+        answer = parseFloat(mass) * specificHeat * deltaT;
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Heat = " + answer + " J";
+      }
+      else if (mass.trim() == '' && heat.trim() != ''
+      && specificHeat.trim() != '' && deltaT.trim() != '') {
+        answer = heat / (specificHeat * deltaT);
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Mass = " + answer + " g";
+      }
+      else if (specificHeat.trim() == '' && heat.trim() != ''
+      && mass.trim() != '' && deltaT.trim() != '') {
+        answer = heat / (mass * deltaT);
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Specific Heat Capacity = " + answer + " J/g*K";
+      }
+      else if (deltaT.trim() == '' && heat.trim() != ''
+      && specificHeat.trim() != '' && mass.trim() != '') {
+        answer = heat / (specificHeat * mass);
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Change in Temperature = " + answer + " K";
+      }
+      else {
+        answer = "Error: You must enter values for three variables.";
+      }
+
+      document.getElementById('answer').textContent =
+      answer;
+      document.getElementById('heatBox').value = '';
+      document.getElementById('massBox').value = '';
+      document.getElementById('specificHeatBox').value = '';
+      document.getElementById('deltaTBox').value = '';
+    }
+  </script>
+</head>
+
+<body>
+  <p>The heat equation is used to calculate the change in temperature that will
+  occur when a specific amount of thermal energy is transferred to or from a
+  system. The change in temperature depends on the specific heat capacity of the
+  material, which is the amount of heat energy required to raise the temperature
+  of a substance per unit of mass. </p>
+
+  <table>
+  <caption>Enter any three variables out of heat, mass, specific heat capacity,
+    and change in temperature to calculate the missing fourth variable.</caption>
+  <tr>
+    <th>Heat (J)</th>
+    <th>Mass (g)</th>
+    <th>Specific Heat Capacity (J/g*K)</th>
+    <th>Change in Temperature (K)</th>
+  </tr>
+  <tr>
+    <td><input type='number' id='heatBox' step='0.000001' /></td>
+    <td><input type='number' id='massBox' step='0.000001' /></td>
+    <td><input type='number' id='specificHeatBox' step='0.000001' /></td>
+    <td><input type='number' id='deltaTBox' step='0.000001' /></td>
+  </tr>
+</table>
+  <button onClick='heatEquation()'>Calculate</button>
+  <p> <span id='answer'></span>
+  </p>
+</body>
+
+</html>
