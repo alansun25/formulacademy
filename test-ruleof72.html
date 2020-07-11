@@ -7,7 +7,11 @@
   <script>
     function RuleOf72() {
       var i = document.getElementById("Box1").value;
-      var ans = (72 / i);
+      if (i.trim() != '') {
+        var ans = (72 / i);
+     } else {
+        answer = "Error: You must enter values for the variable.";
+      }
       document.getElementById('answer').textContent = ans;
       document.getElementById('Box1').value = '';
     }
