@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Quadratic Formula</title>
+  <script>
+    function quadraticFormula() {
+      var i = document.getElementById("Box1").value;
+      var j = document.getElementById("Box2").value;
+      var k = document.getElementById("Box3").value;
+      var ans1 = (-j+Math.pow(Math.pow(j,2)-4*i*k,1/2))/2/i;
+      var ans2 = (-j-Math.pow(Math.pow(j,2)-4*i*k,1/2))/2/i;
+      document.getElementById('answer1').textContent = ans1;
+      document.getElementById('answer2').textContent = ans2;
+      document.getElementById('Box1').value = '';
+      document.getElementById('Box2').value='';
+      document.getElementById('Box3').value='';
+    }
+  </script>
+</head>
+
+<body>
+  <p>Solve an equation of the form ax^2+bx+c=0 by using the quadratic formula</p>
+  <p>Enter a </p>
+  <input type='number' id='Box1' step='0.000001' />
+  <p>Enter b </p>
+  <input type='number' id='Box2' step='0.000001' />
+  <p>Enter c </p>
+  <input type='number' id='Box3' step='0.000001' />
+  <button onClick='quadraticFormula()'>Calculate</button>
+  <p>Result 1: <span id='answer1'></span></p>
+  <p>Result 2: <span id='answer2'></span></p>
+</body>
+
+</html>
