@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Gibbs Free Energy</title>
+  <script>
+    function gibbsFreeEnergy() {
+      var answer;
+      var deltaH = document.getElementById("deltaHBox").value;
+      var temp = document.getElementById("tempBox").value;
+      var deltaS = document.getElementById("deltaSBox").value;
+      var deltaG = document.getElementById("deltaGBox").value;
+
+      if (deltaH.trim() == '' && temp.trim() != ''
+      && deltaS.trim() != '' && deltaG.trim() != '') {
+        deltaS = deltaS * 0.001;
+        answer = parseFloat(deltaG) + (temp * deltaS);
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Delta H = " + answer + " kJ";
+      }
+      else if (temp.trim() == '' && deltaH.trim() != ''
+      && deltaS.trim() != '' && deltaG.trim() != '') {
+        deltaS = deltaS * 0.001;
+        answer = (deltaH - deltaG) / deltaS;
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Temperature = " + answer + " K";
+      }
+      else if (deltaS.trim() == '' && temp.trim() != ''
+      && deltaH.trim() != '' && deltaG.trim() != '') {
+        answer = (deltaH - deltaG) / temp;
+        answer = answer * 1000;
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Delta S = " + answer + " J/K";
+      }
+      else if (deltaG.trim() == '' && temp.trim() != ''
+      && deltaS.trim() != '' && deltaH.trim() != '') {
+        deltaS = deltaS * 0.001;
+        answer = deltaH - (temp * deltaS);
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Delta G = " + answer + " kJ";
+      }
+      else {
+        answer = "Error: You must enter values for three variables.";
+      }
+
+      document.getElementById('answer').textContent =
+      answer;
+      document.getElementById('deltaHBox').value = '';
+      document.getElementById('tempBox').value = '';
+      document.getElementById('deltaSBox').value = '';
+      document.getElementById('deltaGBox').value = '';
+    }
+  </script>
+</head>
+
+<body>
+  <p>Gibbs free energy represents the amount of energy absorbed or released by
+     a chemical reaction that is available to do work. It is defined
+      as the change in enthalpy minus the temperature multiplied by
+      the change in entropy. A chemical reaction will be spontaneous
+       in the forward direction if the gibbs free energy is negative,
+        or spontaneous in the reverse direction if the gibbs free
+        energy is positive.</p>
+
+  <table>
+  <caption>Enter any three variables out of enthalpy, temperature, entropy, and
+    gibbs free energy to calculate the missing fourth variable.</caption>
+  <tr>
+    <th>Delta H (kJ)</th>
+    <th>Temperature (K)</th>
+    <th>Delta S (J/K)</th>
+    <th>Delta G (kJ)</th>
+  </tr>
+  <tr>
+    <td><input type='number' id='deltaHBox' step='0.000001' /></td>
+    <td><input type='number' id='tempBox' step='0.000001' /></td>
+    <td><input type='number' id='deltaSBox' step='0.000001' /></td>
+    <td><input type='number' id='deltaGBox' step='0.000001' /></td>
+  </tr>
+</table>
+  <button onClick='gibbsFreeEnergy()'>Calculate</button>
+  <p> <span id='answer'></span>
+  </p>
+</body>
+
+</html>
