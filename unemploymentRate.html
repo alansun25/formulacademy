@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Unemployment Rate Calucation </title>
+  <script>
+    function unemploymentRate() {
+      var i = document.getElementById("Box1").value;
+      var j = document.getElementById("Box2").value;
+      var ans = i/j*100;
+      document.getElementById('answer').textContent = ans;
+      document.getElementById('Box1').value = '';
+      document.getElementById('Box2').value='';
+    }
+  </script>
+</head>
+
+<body>
+  <p>The unemployment rate is the share of the labor force that is jobless, expressed as a percentage.</p>
+  <p>Enter the number of the unemployed</p>
+  <input type='number' id='Box1' step='0.000001' />
+  <p>Enter the number in the labor force</p>
+  <input type='number' id='Box2' step='0.000001' />
+  <button onClick='unemploymentRate()'>Calculate</button>
+  <p>Result in percentage: <span id='answer'></span></p>
+</body>
+
+</html>
