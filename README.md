@@ -1,2 +1,2 @@
-# VandyHacks - Summer Edition 2020
-VandyHacks - Summer Edition
+# Formulassist
+Created for VandyHacks - Summer Edition
