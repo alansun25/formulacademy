@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>The tax multiplier formula </title>
+  <script>
+    function taxMultiplier() {
+      var i = document.getElementById("Box1").value;
+      var j = document.getElementById("Box2").value;
+      var ans = -(i/j);
+      document.getElementById('answer').textContent = ans;
+      document.getElementById('Box1').value = '';
+      document.getElementById('Box2').value='';
+    }
+  </script>
+</head>
+
+<body>
+  <p>The tax multiplier tells you how much total spending will result from an initial change in the level of taxation. It is negative because when taxes decrease, spending increases, and vis versa.</p>
+  <p>Enter the marginal propensity to consume</p>
+  <input type='number' id='Box1' step='0.000001' />
+  <p>Enter the marginal propensity to save</p>
+  <input type='number' id='Box2' step='0.000001' />
+  <button onClick='taxMultiplier()'>Calculate</button>
+  <p>Result: <span id='answer'></span></p>
+</body>
+
+</html>
