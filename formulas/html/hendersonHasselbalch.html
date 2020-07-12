@@ -2,184 +2,131 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Henderson-Hasselbalch - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Henderson Hasselbalch</title>
-  <script>
-    function hendersonHasselbalchWeakAcid() {
-      var answer;
-      var pKa = document.getElementById("pKaBox").value;
-      var weakAcid = document.getElementById("weakAcidBox").value;
-      var conjBase = document.getElementById("conjBaseBox").value;
-      var pH = document.getElementById("pHBox").value;
-
-
-      if (pKa.trim() == '' && pH.trim() != ''&& weakAcid.trim() != '' &&
-      conjBase.trim() != '') {
-        if (pH < 0 || pH > 14) {
-          answer = "Error: pH value must be from 0 to 14."
-        }
-        else {
-          answer = pH - Math.log10(conjBase / weakAcid);
-          answer = parseFloat(answer).toFixed(3);
-          answer = "pKa = " + answer;
-        }
-      }
-      else if (pH.trim() == '' && pKa.trim() != ''&& weakAcid.trim() != '' &&
-      conjBase.trim() != '') {
-        answer = parseFloat(pKa) + Math.log10(conjBase / weakAcid);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "pH = " + answer;
-      }
-      else if (weakAcid.trim() == '' && pH.trim() != ''&& pKa.trim() != '' &&
-      conjBase.trim() != '') {
-        if (pH < 0 || pH > 14) {
-          answer = "Error: pH value must be from 0 to 14."
-        }
-        else {
-          answer = Math.pow(10, pH - pKa);
-          answer = conjBase / answer;
-          answer = parseFloat(answer).toFixed(3);
-          answer = "Weak Acid Concentration = " + answer + " M";
-        }
-      }
-      else if (conjBase.trim() == '' && pH.trim() != ''&& pKa.trim() != '' &&
-      weakAcid.trim() != '') {
-        if (pH < 0 || pH > 14) {
-          answer = "Error: pH value must be from 0 to 14."
-        }
-        else {
-          answer = Math.pow(10, pH - pKa);
-          answer = answer * weakAcid;
-          answer = parseFloat(answer).toFixed(3);
-          answer = "Conjugate Base Concentration = " + answer + " M";
-        }
-      }
-      else {
-        answer = "Error: You must enter values for three variables.";
-      }
-
-      document.getElementById('answer1').textContent =
-      answer;
-      document.getElementById('pKaBox').value = '';
-      document.getElementById('weakAcidBox').value = '';
-      document.getElementById('conjBaseBox').value = '';
-      document.getElementById('pHBox').value = '';
-
-    }
-
-    function hendersonHasselbalchWeakBase() {
-      var answer;
-      var pKb = document.getElementById("pKbBox").value;
-      var weakBase = document.getElementById("weakBaseBox").value;
-      var conjAcid = document.getElementById("conjAcidBox").value;
-      var pOH = document.getElementById("pOHBox").value;
-
-
-      if (pKb.trim() == '' && pOH.trim() != ''&& weakBase.trim() != '' &&
-      conjAcid.trim() != '') {
-        if (pOH < 0 || pOH > 14) {
-          answer = "Error: pOH value must be from 0 to 14."
-        }
-        else {
-          answer = pOH - Math.log10(conjAcid / weakBase);
-          answer = parseFloat(answer).toFixed(3);
-          answer = "pKb = " + answer;
-        }
-      }
-      else if (pOH.trim() == '' && pKb.trim() != ''&& weakBase.trim() != '' &&
-      conjAcid.trim() != '') {
-        answer = parseFloat(pKb) + Math.log10(conjAcid/weakBase);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "pOH = " + answer;
-      }
-      else if (weakBase.trim() == '' && pKb.trim() != ''&& pOH.trim() != '' &&
-      conjAcid.trim() != '') {
-        if (pOH < 0 || pOH > 14) {
-          answer = "Error: pOH value must be from 0 to 14."
-        }
-        else {
-          answer = Math.pow(10, pOH - pKb);
-          answer = conjAcid / answer;
-          answer = parseFloat(answer).toFixed(3);
-          answer = "Weak Base Concentration = " + answer + " M";
-        }
-      }
-      else if (conjAcid.trim() == '' && pKb.trim() != ''&& pOH.trim() != '' &&
-      weakBase.trim() != '') {
-        if (pOH < 0 || pOH > 14) {
-          answer = "Error: pOH value must be from 0 to 14."
-        }
-        else {
-          answer = Math.pow(10, pOH - pKb);
-          answer = answer * weakBase;
-          answer = parseFloat(answer).toFixed(3);
-          answer = "Conjugate Acid Concentration = " + answer + " M";
-        }
-      }
-      else {
-        answer = "Error: You must enter values for three variables.";
-      }
-
-      document.getElementById('answer2').textContent =
-      answer;
-      document.getElementById('pKbBox').value = '';
-      document.getElementById('weakBaseBox').value = '';
-      document.getElementById('conjAcidBox').value = '';
-      document.getElementById('pOHBox').value = '';
-    }
-
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/henderson.js"></script>
 </head>
 
 <body>
-  <p>The Henderson Hasselbalch equation is used to determine the pH of a buffer
-    solution based on the amounts of weak acid and conjugate base or weak base and
-    conjugate acid present. The equation is an approximation and only holds when
-    the concentrations of acid and base at equilibrium have changed by less than
-    five percent of their initial concentrations.</p>
 
-  <table>
-  <caption>Weak acid and its conjugate base:</caption>
-  <caption>Enter any three variables out of pKa, weak acid concentration,
-  conjugate base concentration, and pH to calculate the fourth variable.</caption>
-  <tr>
-    <th>pKa</th>
-    <th>Weak Acid Concentration (M)</th>
-    <th>Conjugate Base Concentration (M)</th>
-    <th>pH</th>
-  </tr>
-  <tr>
-    <td><input type='number' id='pKaBox' step='0.000001' /></td>
-    <td><input type='number' id='weakAcidBox' step='0.000001' /></td>
-    <td><input type='number' id='conjBaseBox' step='0.000001' /></td>
-    <td><input type='number' id='pHBox' step='0.000001' /></td>
-  </tr>
-</table>
-  <button onClick='hendersonHasselbalchWeakAcid()'>Calculate</button>
-  <p> <span id='answer1'></span>
-  </p>
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Henderson-Hasselbalch Equation</h1>
+        <img src="../../img/hendersonHasselbalchImage.png" class="img-fluid rounded mb-2" alt="Heat Equation">
+        <p class="lead text-fix">The Henderson-Hasselbalch equation is used to determine the pH of a buffer
+          solution based on the amounts of weak acid and conjugate base or weak base and
+          conjugate acid present. The equation is an approximation and only holds when
+          the concentrations of acid and base at equilibrium have changed by less than
+          five percent of their initial concentrations.</p>
+        <hr>
+      </div>
+    </section>
+
+    <div class="row henderson text-center">
+      <div class="col-sm-4 text-center">
+        <p class="text-white text-fix"><strong>Weak acid and its conjugate base</strong></p>
+        <p class="text-white text-fix">Enter any three variables out of pKa, weak acid concentration,
+        conjugate base concentration, and pH to calculate the fourth variable:</p>
+        <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+          <div class="form-group">
+            <label for="pKaBox" class="text-fix">pKa:</label>
+            <input type="number" id="pKaBox" class="form-control text-fix" step="0.000001" placeholder="pKa">
+          </div>
+          <div class="form-group">
+            <label for="weakAcidBox" class="text-fix">Weak Acid Concentration (M):</label>
+            <input type="number" id="weakAcidBox" class="form-control text-fix" step="0.000001" placeholder="Weak Acid">
+          </div>
+          <div class="form-group">
+            <label for="conjBaseBox" class="text-fix">Conjugate Base Concentration (M):</label>
+            <input type="number" id="conjBaseBox" class="form-control text-fix" step="0.000001" placeholder="Conjugate Base">
+          </div>
+          <div class="form-group">
+            <label for="pHBox" class="text-fix">pH:</label>
+            <input type="number" id="pHBox" class="form-control text-fix" step="0.000001" placeholder="ph">
+          </div>
+          <button onClick="hendersonHasselbalchWeakAcid()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+          <p class="mt-2"><strong class="text-fix">Result: <span id="answer1" class="text-fix"></span></strong></p>
+        </form>
+      </div>
+
+      <div class="col-sm-4 text-center">
+        <p class="text-white text-fix"><strong>Weak base and its conjugate acid</strong></p>
+        <p class="text-white text-fix">Enter any three variables out of pKb, weak base concentration,
+        conjugate acid concentration, and pOH to calculate the fourth variable:</p>
+        <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+          <div class="form-group">
+            <label for="pKbBox" class="text-fix">pKb:</label>
+            <input type="number" id="pKbBox" class="form-control text-fix" step="0.000001" placeholder="pKb">
+          </div>
+          <div class="form-group">
+            <label for="weakBaseBox" class="text-fix">Weak Base Concentration (M):</label>
+            <input type="number" id="weakBaseBox" class="form-control text-fix" step="0.000001" placeholder="Weak Base">
+          </div>
+          <div class="form-group">
+            <label for="conjAcidBox" class="text-fix">Conjugate Acid Concentration (M):</label>
+            <input type="number" id="conjAcidBox" class="form-control text-fix" step="0.000001" placeholder="Conjugate Acid">
+          </div>
+          <div class="form-group">
+            <label for="pOHBox" class="text-fix">pOH:</label>
+            <input type="number" id="pOHBox" class="form-control text-fix" step="0.000001" placeholder="pOH">
+          </div>
+          <button onClick="hendersonHasselbalchWeakBase()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+          <p class="mt-2"><strong class="text-fix">Result: <span id="answer2" class="text-fix"></span></strong></p>
+        </form>
+      </div>
+    </div>
 
 
-  <table>
-  <caption>Weak base and its conjugate acid:</caption>
-  <caption>Enter any three variables out of pKb, weak base concentration,
-  conjugate acid concentration, and pOH to calculate the fourth variable.</caption>
-  <tr>
-    <th>pKb</th>
-    <th>Weak Base Concentration (M)</th>
-    <th>Conjugate Acid Concentration (M)</th>
-    <th>pOH</th>
-  </tr>
-  <tr>
-    <td><input type='number' id='pKbBox' step='0.000001' /></td>
-    <td><input type='number' id='weakBaseBox' step='0.000001' /></td>
-    <td><input type='number' id='conjAcidBox' step='0.000001' /></td>
-    <td><input type='number' id='pOHBox' step='0.000001' /></td>
-  </tr>
-</table>
-  <button onClick='hendersonHasselbalchWeakBase()'>Calculate</button>
-  <p> <span id='answer2'></span>
-  </p>
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
