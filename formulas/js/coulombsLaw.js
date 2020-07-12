@@ -34,7 +34,7 @@ function coulombsLaw() {
     answer = (Math.abs(force) * Math.pow(distance, 2)) / (Math.abs(charge1) * constant);
     answer = answer * 1000000;
     answer = parseFloat(answer).toFixed(3);
-    answer = "Charge 2 Magnitude = " + answer + " microoulombs";
+    answer = "Charge 2 Magnitude = " + answer + " microcoulombs";
   }
   else if (distance.trim() == '' && charge1.trim() != ''
   && charge2.trim() != '' && force.trim() != '') {

@@ -14,103 +14,81 @@
   <script type="text/javascript" src="../js/coulombsLaw.js"></script>
 </head>
 
-<section class="page">
-  <nav class="navbar navbar-expand-md navbar-dark sticky-top">
-    <div class="container-fluid ">
-      <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link text-fix" href="../../index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-fix" href="../../about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
-          </li>
-        </ul>
+<body>
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Coulomb's Law</h1>
+        <img src="../../img/coulombsLawImage.png" class="img-fluid rounded mb-2" alt="Coulombs Law">
+        <p class="lead text-fix">Coulomb's law is used to calculate the electric force between two stationary
+          point-like charges. The magnitude of the electric force is directly proportional
+          to the product of the electric charges and inversely proportional to the square of
+          the distance between the charges.</p>
+        <hr>
+        <p class="text-fix mt-3">Enter any three variables out of charge 1, charge 2, distance, and
+          electric force magnitude to calculate the missing fourth variable:</p>
+      </div>
+    </section>
+
+    <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+      <div class="form-group">
+        <label for="charge1Box" class="text-fix">Charge 1 (microcoulombs):</label>
+        <input type="number" id="charge1Box" class="form-control text-fix" step="0.000001" placeholder="Charge 1">
+      </div>
+      <div class="form-group">
+        <label for="charge2Box" class="text-fix">Charge 2 (microcoulombs):</label>
+        <input type="number" id="charge2Box" class="form-control text-fix" step="0.000001" placeholder="Charge 2">
+      </div>
+      <div class="form-group">
+        <label for="distanceBox" class="text-fix">Distance (meters):</label>
+        <input type="number" id="distanceBox" class="form-control text-fix" step="0.000001" placeholder="Distance">
+      </div>
+      <div class="form-group">
+        <label for="electricForceBox" class="text-fix">Electric Force Magnitude (Newtons):</label>
+        <input type="number" id="electricForceBox" class="form-control text-fix" step="0.000001" placeholder="Electric Force Magnitude">
+      </div>
+      <button onClick="coulombsLaw()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+      <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+    </form>
+
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
       </div>
     </div>
-  </nav>
 
-  <section class="jumbotron text-center text-white">
-    <div class="container">
-      <h1 class="font-weight-bold">Coulomb's Law</h1>
-      <img src="../../img/coulombsLawImage.png" class="img-fluid rounded mb-2" alt="Coulombs Law">
-      <p class="lead text-fix">Coulomb's law is used to calculate the electric force between two stationary
-        point-like charges. The magnitude of the electric force is directly proportional
-        to the product of the electric charges and inversely proportional to the square of
-        the distance between the charges.</p>
-      <hr>
-      <p class="text-fix mt-3">Enter any three variables out of charge 1, charge 2, distance, and
-        electric force magnitude to calculate the missing fourth variable:</p>
-    </div>
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
   </section>
 
-  <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
-    <div class="form-group">
-      <label for="temp1Box" class="text-fix">Temperature 1 (K):</label>
-      <input type="number" id="temp1Box" class="form-control text-fix" step="0.000001" placeholder="Temperature 1">
-    </div>
-    <div class="form-group">
-      <label for="temp2Box" class="text-fix">Temperature 2 (K):</label>
-      <input type="number" id="temp2Box" class="form-control text-fix" step="0.000001" placeholder="Temperature 2">
-    </div>
-    <div class="form-group">
-      <label for="pressure1Box" class="text-fix">Pressure 1 (atm):</label>
-      <input type="number" id="pressure1Box" class="form-control text-fix" step="0.000001" placeholder="Pressure 1">
-    </div>
-    <div class="form-group">
-      <label for="pressure2Box" class="text-fix">Pressure 2 (atm):</label>
-      <input type="number" id="pressure2Box" class="form-control text-fix" step="0.000001" placeholder="Pressure 2">
-    </div>
-    <div class="form-group">
-      <label for="deltaHVapBox" class="text-fix">Enthalpy of Vaporization (kJ/mol):</label>
-      <input type="number" id="deltaHVapBox" class="form-control text-fix" step="0.000001" placeholder="Enthalpy of Vaporization">
-    </div>
-    <button onClick="clausiusClapeyron()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
-    <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
-  </form>
-
-  <div class="row content mb-5 text-center">
-    <div class="col-12 padding main">
-      <div>
-        <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
-      </div>
-    </div>
-  </div>
-
-  <footer class="text-light footer-text mb-5 text-center">
-    We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
-  </footer>
-</section>
-
-<body>
-  <table>
-  <caption></caption>
-  <tr>
-    <th>Charge 1 (microcoulombs)</th>
-    <th>Charge 2 (microcoulombs)</th>
-    <th>Distance (meters)</th>
-    <th>Electric Force Magnitude (Newtons)</th>
-  </tr>
-  <tr>
-    <td><input type='number' id='charge1Box' step='0.000001' /></td>
-    <td><input type='number' id='charge2Box' step='0.000001' /></td>
-    <td><input type='number' id='distanceBox' step='0.000001' /></td>
-    <td><input type='number' id='electricForceBox' step='0.000001' /></td>
-  </tr>
-</table>
-  <button onClick='coulombsLaw()'>Calculate</button>
-  <p> <span id='answer'></span>
-  </p>
 </body>
 
 </html>
