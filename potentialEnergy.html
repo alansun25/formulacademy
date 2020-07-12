@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title> Gravitational potential energy</title>
+  <script>
+    function potentialEnergy() {
+      var m = document.getElementById("Box1").value;
+      var h = document.getElementById("Box2").value;
+      if (m.trim() != '' && h.trim() != '') {
+      var ans = m*h*(9.8);
+      ans= ans + " J";
+     } else {
+        answer = "Error: You must enter values for two variables.";
+      }
+      document.getElementById('answer').textContent = ans;
+      document.getElementById('Box1').value = '';
+      document.getElementById('Box2').value='';
+    }
+  </script>
+</head>
+
+<body>
+  <p>In physics, potential energy is the energy held by an object because of its position relative to other objects, stresses within itself, its electric charge, or other factors.</p>
+  <p>For the gravitational force the formula is P.E. = mgh, where m is the mass in kilograms, g is the acceleration due to gravity (9.8 m / s2 at the surface of the earth) and h is the height in meters.</p>
+  <table>
+
+    <tr>
+      <th>mass (kg) </th>
+      <th>height (m) </th>
+    </tr>
+    <tr>
+      <td><input type='number' id='Box1' step='0.000001' /></td>
+      <td><input type='number' id='Box2' step='0.000001' /></td>
+     
+    </tr>
+  </table>
+  
+
+  <button onClick='kineticEnergy()'>Calculate</button>
+  <p>Result: <span id='answer'></span></p>
+</body>
+
+</html>
