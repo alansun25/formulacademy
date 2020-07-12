@@ -2,80 +2,98 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Heat Equation - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Heat Equation</title>
-  <script>
-    function heatEquation() {
-      var answer;
-      var heat = document.getElementById("heatBox").value;
-      var mass = document.getElementById("massBox").value;
-      var specificHeat = document.getElementById("specificHeatBox").value;
-      var deltaT = document.getElementById("deltaTBox").value;
-
-      if (heat.trim() == '' && mass.trim() != ''
-      && specificHeat.trim() != '' && deltaT.trim() != '') {
-        answer = parseFloat(mass) * specificHeat * deltaT;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Heat = " + answer + " J";
-      }
-      else if (mass.trim() == '' && heat.trim() != ''
-      && specificHeat.trim() != '' && deltaT.trim() != '') {
-        answer = heat / (specificHeat * deltaT);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Mass = " + answer + " g";
-      }
-      else if (specificHeat.trim() == '' && heat.trim() != ''
-      && mass.trim() != '' && deltaT.trim() != '') {
-        answer = heat / (mass * deltaT);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Specific Heat Capacity = " + answer + " J/g*K";
-      }
-      else if (deltaT.trim() == '' && heat.trim() != ''
-      && specificHeat.trim() != '' && mass.trim() != '') {
-        answer = heat / (specificHeat * mass);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Change in Temperature = " + answer + " K";
-      }
-      else {
-        answer = "Error: You must enter values for three variables.";
-      }
-
-      document.getElementById('answer').textContent =
-      answer;
-      document.getElementById('heatBox').value = '';
-      document.getElementById('massBox').value = '';
-      document.getElementById('specificHeatBox').value = '';
-      document.getElementById('deltaTBox').value = '';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/heat.js"></script>
 </head>
 
 <body>
-  <p>The heat equation is used to calculate the change in temperature that will
-  occur when a specific amount of thermal energy is transferred to or from a
-  system. The change in temperature depends on the specific heat capacity of the
-  material, which is the amount of heat energy required to raise the temperature
-  of a substance per unit of mass. </p>
 
-  <table>
-  <caption>Enter any three variables out of heat, mass, specific heat capacity,
-    and change in temperature to calculate the missing fourth variable.</caption>
-  <tr>
-    <th>Heat (J)</th>
-    <th>Mass (g)</th>
-    <th>Specific Heat Capacity (J/g*K)</th>
-    <th>Change in Temperature (K)</th>
-  </tr>
-  <tr>
-    <td><input type='number' id='heatBox' step='0.000001' /></td>
-    <td><input type='number' id='massBox' step='0.000001' /></td>
-    <td><input type='number' id='specificHeatBox' step='0.000001' /></td>
-    <td><input type='number' id='deltaTBox' step='0.000001' /></td>
-  </tr>
-</table>
-  <button onClick='heatEquation()'>Calculate</button>
-  <p> <span id='answer'></span>
-  </p>
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Heat Equation</h1>
+        <img src="../../img/heatEquationImage.png" class="img-fluid rounded mb-2" alt="Heat Equation">
+        <p class="lead text-fix">The heat equation is used to calculate the change in temperature that will
+        occur when a specific amount of thermal energy is transferred to or from a
+        system. The change in temperature depends on the specific heat capacity of the
+        material, which is the amount of heat energy required to raise the temperature
+        of a substance per unit of mass. </p>
+        <hr>
+        <p class="mt-3">Enter any three variables out of heat, mass, specific heat capacity,
+          and change in temperature to calculate the missing fourth variable:</p>
+      </div>
+    </section>
+
+    <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+      <div class="form-group">
+        <label for="heatBox" class="text-fix">Heat (J):</label>
+        <input type="number" id="heatBox" class="form-control text-fix" step="0.000001" placeholder="q">
+      </div>
+      <div class="form-group">
+        <label for="massBox" class="text-fix">Mass (g):</label>
+        <input type="number" id="massBox" class="form-control text-fix" step="0.000001" placeholder="m">
+      </div>
+      <div class="form-group">
+        <label for="specificHeatBox" class="text-fix">Specific Heat Capacity (J/g*K):</label>
+        <input type="number" id="specificHeatBox" class="form-control text-fix" step="0.000001" placeholder="c">
+      </div>
+      <div class="form-group">
+        <label for="deltaTBox" class="text-fix">Change in Temperature (K):</label>
+        <input type="number" id="deltaTBox" class="form-control text-fix" step="0.000001" placeholder="ΔT">
+      </div>
+      <button onClick="heatEquation()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+      <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+    </form>
+
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
