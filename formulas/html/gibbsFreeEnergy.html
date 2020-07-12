@@ -2,86 +2,97 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Gibbs Free Energy - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Gibbs Free Energy</title>
-  <script>
-    function gibbsFreeEnergy() {
-      var answer;
-      var deltaH = document.getElementById("deltaHBox").value;
-      var temp = document.getElementById("tempBox").value;
-      var deltaS = document.getElementById("deltaSBox").value;
-      var deltaG = document.getElementById("deltaGBox").value;
-
-      if (deltaH.trim() == '' && temp.trim() != ''
-      && deltaS.trim() != '' && deltaG.trim() != '') {
-        deltaS = deltaS * 0.001;
-        answer = parseFloat(deltaG) + (temp * deltaS);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Delta H = " + answer + " kJ";
-      }
-      else if (temp.trim() == '' && deltaH.trim() != ''
-      && deltaS.trim() != '' && deltaG.trim() != '') {
-        deltaS = deltaS * 0.001;
-        answer = (deltaH - deltaG) / deltaS;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Temperature = " + answer + " K";
-      }
-      else if (deltaS.trim() == '' && temp.trim() != ''
-      && deltaH.trim() != '' && deltaG.trim() != '') {
-        answer = (deltaH - deltaG) / temp;
-        answer = answer * 1000;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Delta S = " + answer + " J/K";
-      }
-      else if (deltaG.trim() == '' && temp.trim() != ''
-      && deltaS.trim() != '' && deltaH.trim() != '') {
-        deltaS = deltaS * 0.001;
-        answer = deltaH - (temp * deltaS);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Delta G = " + answer + " kJ";
-      }
-      else {
-        answer = "Error: You must enter values for three variables.";
-      }
-
-      document.getElementById('answer').textContent =
-      answer;
-      document.getElementById('deltaHBox').value = '';
-      document.getElementById('tempBox').value = '';
-      document.getElementById('deltaSBox').value = '';
-      document.getElementById('deltaGBox').value = '';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/gibbs.js"></script>
 </head>
 
 <body>
-  <p>Gibbs free energy represents the amount of energy absorbed or released by
-     a chemical reaction that is available to do work. It is defined
-      as the change in enthalpy minus the temperature multiplied by
-      the change in entropy. A chemical reaction will be spontaneous
-       in the forward direction if the gibbs free energy is negative,
-        or spontaneous in the reverse direction if the gibbs free
-        energy is positive.</p>
 
-  <table>
-  <caption>Enter any three variables out of enthalpy, temperature, entropy, and
-    gibbs free energy to calculate the missing fourth variable.</caption>
-  <tr>
-    <th>Delta H (kJ)</th>
-    <th>Temperature (K)</th>
-    <th>Delta S (J/K)</th>
-    <th>Delta G (kJ)</th>
-  </tr>
-  <tr>
-    <td><input type='number' id='deltaHBox' step='0.000001' /></td>
-    <td><input type='number' id='tempBox' step='0.000001' /></td>
-    <td><input type='number' id='deltaSBox' step='0.000001' /></td>
-    <td><input type='number' id='deltaGBox' step='0.000001' /></td>
-  </tr>
-</table>
-  <button onClick='gibbsFreeEnergy()'>Calculate</button>
-  <p> <span id='answer'></span>
-  </p>
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Gibbs Free Energy</h1>
+        <img src="../../img/gibbsFreeEnergyImage.png" class="img-fluid rounded mb-2" alt="Gibbs Free Energy">
+        <p class="lead text-fix">Gibbs free energy represents the amount of energy absorbed or released by
+          a chemical reaction that is available to do work. It is defined
+          as the change in enthalpy minus the temperature multiplied by
+          the change in entropy. A chemical reaction will be spontaneous
+          in the forward direction if the gibbs free energy is negative,
+          or spontaneous in the reverse direction if the gibbs free
+          energy is positive.</p>
+        <hr>
+        <p class="mt-3">Enter any three variables out of enthalpy, temperature, entropy, and
+          Gibbs free energy to calculate the missing fourth variable:</p>
+      </div>
+    </section>
+    
+    <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+      <div class="form-group">
+        <label for="deltaHBox" class="text-fix">Delta H (kJ):</label>
+        <input type="number" id="deltaHBox" class="form-control text-fix" step="0.000001" placeholder="ΔH">
+      </div>
+      <div class="form-group">
+        <label for="tempBox" class="text-fix">Temperature (K):</label>
+        <input type="number" id="tempBox" class="form-control text-fix" step="0.000001" placeholder="T">
+      </div>
+      <div class="form-group">
+        <label for="deltaSBox" class="text-fix">Delta S (J/K):</label>
+        <input type="number" id="deltaSBox" class="form-control text-fix" step="0.000001" placeholder="ΔS">
+      </div>
+      <div class="form-group">
+        <label for="deltaGBox" class="text-fix">Delta G (kJ):</label>
+        <input type="number" id="deltaGBox" class="form-control text-fix" step="0.000001" placeholder="ΔG">
+      </div>
+      <button onClick="gibbsFreeEnergy()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+      <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+    </form>
+
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
+  </section>
+
 </body>
 
 </html>
