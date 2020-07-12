@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+.navbar {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.jumbotron {
+  padding-bottom: 0;
+  padding-top: 2rem;
+  background: none;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.calc-category {
+  font-size: 20px;
+  margin-top: 15%;
+  margin-bottom: -10%;
+}
+
+.calc-input {
+  margin-bottom: -5%;
+}
+
+.card {
+  border: none;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.name {
+  text-shadow: 0 8px 8px rgba(0,0,0,5);
+  mix-blend-mode: overlay;
+}
+
+.content {
+  width: 75%;
+  margin: 10% auto;
+}
+
+hr {
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  height: 1px;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-text {
+  font-size: 14px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.calc-btn {
+  width: 100%;
+}
+
+.list-group-item {
+  background: none;
+  border-bottom: 1px solid white;
+}
+
+.list-group-item:hover {
+  background: none;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.list-group-item:visited {
+  background: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*---Media Queries --*/
+@media (max-width: 1595px) {
+  .jumbotron {
+    padding-top: 5.5rem;
+  }
+}
+@media (max-width: 768px) {
+  * {
+    font-size: 14px;
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  .main-box, .jumbotron {
+    padding-top: 2.5rem;
+  }
+
+  .text-fix {
+    font-size: 20px;
+  }
+
+  .content {
+    width: 80%;
+    margin: 10% auto;
+  }
+}
+@media (max-width: 576px) {
+  * {
+    font-size: 11px;
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  .main-box, .jumbotron {
+    padding-top: 2.5rem;
+  }
+
+  .text-fix {
+    font-size: 20px;
+  }
+
+  .content {
+    width: 100%;
+    margin: 10% auto;
+  }
+}
+
+/* Kindle Fire */
+@media (width: 800px) {
+  * {
+    font-size:12px;
+  }
+
+  .main-box, .jumbotron {
+    padding-top: 2.5rem;
+  }
+
+  .text-fix {
+    font-size: 20px;
+  }
+
+  .content {
+    width: 80%;
+    margin: 10% auto;
+  }
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
