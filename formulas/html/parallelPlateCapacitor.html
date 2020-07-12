@@ -2,95 +2,98 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Parallel Plate Capacitor - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Parallel Plate Capacitor</title>
-  <script>
-    function findCapacitance() {
-      var answer;
-      var electricConstant = 8.85418782e-12;
-      var area = document.getElementById("areaBox").value;
-      var distance = document.getElementById("distanceBox").value;
-      var dielectricConstant = document.getElementById("dielectricConstantBox").value;
-      var capacitance = document.getElementById("capacitanceBox").value;
-
-      if (area.trim() == '' && distance.trim() != ''
-      && dielectricConstant.trim() != '' && capacitance.trim() != '') {
-        capacitance = capacitance * 0.000000000001;
-        distance = distance * 0.01;
-        answer = (capacitance * distance) / (dielectricConstant * electricConstant);
-        answer = answer * 10000;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Area = " + answer + " square cm";
-      }
-      else if (distance.trim() == '' && area.trim() != ''
-      && dielectricConstant.trim() != '' && capacitance.trim() != '') {
-        capacitance = capacitance * 0.000000000001;
-        area = area * 0.0001;
-        answer = (dielectricConstant * electricConstant * area) / capacitance;
-        answer = answer * 100;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Distance between Plates = " + answer + " cm";
-      }
-      else if (dielectricConstant.trim() == '' && distance.trim() != ''
-      && area.trim() != '' && capacitance.trim() != '') {
-        capacitance = capacitance * 0.000000000001;
-        area = area * 0.0001;
-        distance = distance * 0.01;
-        answer = (capacitance * distance) / (electricConstant * area);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Dielectric Constant = " + answer;
-      }
-      else if (capacitance.trim() == '' && distance.trim() != ''
-      && area.trim() != '' && dielectricConstant.trim() != '') {
-        area = area * 0.0001;
-        distance = distance * 0.01;
-        answer = (dielectricConstant * electricConstant * area) / distance;
-        answer = answer * 1000000000000;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Capacitance = " + answer + " picofarads";
-      }
-      else {
-        answer = "Error: You must enter values for three variables.";
-      }
-
-      document.getElementById('answer').textContent =
-      answer;
-      document.getElementById('areaBox').value = '';
-      document.getElementById('distanceBox').value = '';
-      document.getElementById('dielectricConstantBox').value = '';
-      document.getElementById('capacitanceBox').value = '';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/parallel.js"></script>
 </head>
 
 <body>
-  <p>A parallel plate capacitor consists of two conducting plates separated by a
-    dielectric, which inhibits the flow of electric charge between the plates. This
-  formula is used to calculate the capacitance of a parallel plate capacitor, a
-  measure of its ability to store charge. The capacitance is independent of the charge
-  and voltage, only depending on the dimensions of the plates and dielectric material. </p>
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-  <table>
-  <caption>Enter any three variables out of area of the plates, distance between <thead>
-    plates, dieletric constant, and capacitance to calculate the fourth variable.
-    The dielectric constant of a vacuum is 1. </caption>
-  <tr>
-    <th>Area of Capacitor Plates (square cm)</th>
-    <th>Distance between Plates (cm)</th>
-    <th>Dielectric Constant (unitless)</th>
-    <th>Capacitance (picofarads)</th>
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Capacitance of a Parallel Plate Capacitor</h1>
+        <img src="../../img/parallelPlateCapacitorImage.png" class="img-fluid rounded mb-2" alt="Parallel Plate Capacitor">
+        <p class="lead text-fix">A parallel plate capacitor consists of two conducting plates separated by a
+          dielectric, which inhibits the flow of electric charge between the plates. This
+          formula is used to calculate the capacitance of a parallel plate capacitor, a
+          measure of its ability to store charge. The capacitance is independent of the charge
+          and voltage, only depending on the dimensions of the plates and dielectric material.</p>
+        <hr>
+        <p class="mt-3">Enter any three variables out of area of the plates, distance between
+          plates, dieletric constant, and capacitance to calculate the fourth variable.
+          The dielectric constant of a vacuum is 1:</p>
+      </div>
+    </section>
 
-  </tr>
-  <tr>
-    <td><input type='number' id='areaBox' step='0.000001' /></td>
-    <td><input type='number' id='distanceBox' step='0.000001' /></td>
-    <td><input type='number' id='dielectricConstantBox' step='0.000001' /></td>
-    <td><input type='number' id='capacitanceBox' step='0.000001' /></td>
-  </tr>
-</table>
-  <button onClick='findCapacitance()'>Calculate</button>
-  <p> <span id='answer'></span>
-  </p>
+    <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+      <div class="form-group">
+        <label for="areaBox" class="text-fix">Area of Capacitor Plates (square cm):</label>
+        <input type="number" id="areaBox" class="form-control text-fix" step="0.000001" placeholder="Area">
+      </div>
+      <div class="form-group">
+        <label for="distanceBox" class="text-fix">Distance between Plates (cm):</label>
+        <input type="number" id="distanceBox" class="form-control text-fix" step="0.000001" placeholder="Distance">
+      </div>
+      <div class="form-group">
+        <label for="dielectricConstantBox" class="text-fix">Dielectric Constant (unitless):</label>
+        <input type="number" id="dielectricConstantBox" class="form-control text-fix" step="0.000001" placeholder="Dielectric Constant">
+      </div>
+      <div class="form-group">
+        <label for="capacitanceBox" class="text-fix">Capacitance (picofarads):</label>
+        <input type="number" id="capacitanceBox" class="form-control text-fix" step="0.000001" placeholder="Capacitance">
+      </div>
+      <button onClick="findCapacitance()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+      <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+    </form>
+
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
