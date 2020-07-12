@@ -2,79 +2,99 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Coulombs Law - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Coulombs Law</title>
-  <script>
-
-    function coulombsLaw() {
-      var answer;
-      var constant = 8.9875517923e9;
-      var charge1 = document.getElementById("charge1Box").value;
-      var charge2 = document.getElementById("charge2Box").value;
-      var distance = document.getElementById("distanceBox").value;
-      var force = document.getElementById("electricForceBox").value;
-
-      if (force.trim() == '' && charge1.trim() != ''
-      && charge2.trim() != '' && distance.trim() != '') {
-        charge1 = charge1 * 0.000001;
-        charge2 = charge2 * 0.000001;
-        answer = constant * (Math.abs(charge1) * Math.abs(charge2)) / Math.pow(distance, 2);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Electric Force Magnitude = " + answer + " Newtons";
-        if (charge1 > 0 && charge2 < 0 || charge1 < 0 && charge2 > 0) {
-          answer = answer + " (Attractive)";
-        }
-        else if (charge1 < 0 && charge2 < 0 || charge1 > 0 && charge2 > 0) {
-          answer = answer + " (Repulsive)";
-        }
-      }
-      else if (charge1.trim() == '' && force.trim() != '' &&
-       charge2.trim() != '' && distance.trim() != '') {
-        charge2 = charge2 * 0.000001;
-        answer = (Math.abs(force) * Math.pow(distance, 2)) / (Math.abs(charge2) * constant);
-        answer = answer * 1000000;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Charge 1 Magnitude = " + answer + " microcoulombs";
-      }
-      else if (charge2.trim() == '' && charge1.trim() != ''
-      && force.trim() != '' && distance.trim() != '') {
-        charge1 = charge1 * 0.000001;
-        answer = (Math.abs(force) * Math.pow(distance, 2)) / (Math.abs(charge1) * constant);
-        answer = answer * 1000000;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Charge 2 Magnitude = " + answer + " microoulombs";
-      }
-      else if (distance.trim() == '' && charge1.trim() != ''
-      && charge2.trim() != '' && force.trim() != '') {
-        charge1 = charge1 * 0.000001;
-        charge2 = charge2 * 0.000001;
-        answer = (constant * Math.abs(charge1) * Math.abs(charge2)) / Math.abs(force);
-        answer = Math.sqrt(answer);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Distance = " + answer + " meters";
-      }
-      else {
-        answer = "Error: You must enter values for three variables.";
-      }
-
-      document.getElementById('answer').textContent = answer;
-      document.getElementById('charge1Box').value = '';
-      document.getElementById('charge2Box').value = '';
-      document.getElementById('distanceBox').value = '';
-      document.getElementById('electricForceBox').value = '';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/coulombsLaw.js"></script>
 </head>
 
-<body>
-  <p>Coulomb's law is used to calculate the electric force between two stationary
-    point-like charges. The magnitude of the electric force is directly proportional
-  to the product of the electric charges and inversely proportional to the square of
-the distance between the charges.</p>
+<section class="page">
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+    <div class="container-fluid ">
+      <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link text-fix" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-fix" href="../../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <section class="jumbotron text-center text-white">
+    <div class="container">
+      <h1 class="font-weight-bold">Coulomb's Law</h1>
+      <img src="../../img/coulombsLawImage.png" class="img-fluid rounded mb-2" alt="Coulombs Law">
+      <p class="lead text-fix">Coulomb's law is used to calculate the electric force between two stationary
+        point-like charges. The magnitude of the electric force is directly proportional
+        to the product of the electric charges and inversely proportional to the square of
+        the distance between the charges.</p>
+      <hr>
+      <p class="text-fix mt-3">Enter any three variables out of charge 1, charge 2, distance, and
+        electric force magnitude to calculate the missing fourth variable:</p>
+    </div>
+  </section>
+
+  <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+    <div class="form-group">
+      <label for="temp1Box" class="text-fix">Temperature 1 (K):</label>
+      <input type="number" id="temp1Box" class="form-control text-fix" step="0.000001" placeholder="Temperature 1">
+    </div>
+    <div class="form-group">
+      <label for="temp2Box" class="text-fix">Temperature 2 (K):</label>
+      <input type="number" id="temp2Box" class="form-control text-fix" step="0.000001" placeholder="Temperature 2">
+    </div>
+    <div class="form-group">
+      <label for="pressure1Box" class="text-fix">Pressure 1 (atm):</label>
+      <input type="number" id="pressure1Box" class="form-control text-fix" step="0.000001" placeholder="Pressure 1">
+    </div>
+    <div class="form-group">
+      <label for="pressure2Box" class="text-fix">Pressure 2 (atm):</label>
+      <input type="number" id="pressure2Box" class="form-control text-fix" step="0.000001" placeholder="Pressure 2">
+    </div>
+    <div class="form-group">
+      <label for="deltaHVapBox" class="text-fix">Enthalpy of Vaporization (kJ/mol):</label>
+      <input type="number" id="deltaHVapBox" class="form-control text-fix" step="0.000001" placeholder="Enthalpy of Vaporization">
+    </div>
+    <button onClick="clausiusClapeyron()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+    <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+  </form>
+
+  <div class="row content mb-5 text-center">
+    <div class="col-12 padding main">
+      <div>
+        <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-light footer-text mb-5 text-center">
+    We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+  </footer>
+</section>
+
+<body>
   <table>
-  <caption>Enter any three variables out of charge 1, charge 2, distance, and
-    electric force magnitude to calculate the missing fourth variable.</caption>
+  <caption></caption>
   <tr>
     <th>Charge 1 (microcoulombs)</th>
     <th>Charge 2 (microcoulombs)</th>
