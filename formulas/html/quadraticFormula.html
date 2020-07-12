@@ -1,35 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Quadratic Formula - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Quadratic Formula</title>
-  <script>
-    function quadraticFormula() {
-      var i = document.getElementById("Box1").value;
-      var j = document.getElementById("Box2").value;
-      var k = document.getElementById("Box3").value;
-      if (i.trim() != '' && j.trim() != ''
-      && k.trim() != '') {
-      var ans1 = (-j+Math.pow(Math.pow(j,2)-4*i*k,1/2))/2/i;
-      var ans2 = (-j-Math.pow(Math.pow(j,2)-4*i*k,1/2))/2/i;
-      } else {
-        answer = "Error: You must enter values for three variables.";
-      }
-      document.getElementById('answer1').textContent = ans1;
-      document.getElementById('answer2').textContent = ans2;
-      document.getElementById('Box1').value = '';
-      document.getElementById('Box2').value='';
-      document.getElementById('Box3').value='';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/quadraticFormula.js"></script>
 </head>
 
 
 <body>
     <p>Solve an equation of the form ax^2+bx+c=0 by using the quadratic formula</p>
-  
+
     <table>
     <caption>Enter a, b, and c accordingly to solve x.</caption>
     <tr>
