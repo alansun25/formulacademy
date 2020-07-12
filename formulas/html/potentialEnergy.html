@@ -10,6 +10,7 @@
       var h = document.getElementById("Box2").value;
       if (m.trim() != '' && h.trim() != '') {
       var ans = m*h*(9.8);
+      ans = parseFloat(ans).toFixed(3);
       ans= ans + " J";
      } else {
         answer = "Error: You must enter values for two variables.";
@@ -33,10 +34,10 @@
     <tr>
       <td><input type='number' id='Box1' step='0.000001' /></td>
       <td><input type='number' id='Box2' step='0.000001' /></td>
-     
+
     </tr>
   </table>
-  
+
 
   <button onClick='kineticEnergy()'>Calculate</button>
   <p>Result: <span id='answer'></span></p>

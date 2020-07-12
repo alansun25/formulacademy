@@ -3,7 +3,8 @@ function inflationRate() {
   var j = document.getElementById("Box2").value;
   if (i.trim() != '' && j.trim() != '') {
     var ans = (j-i)/i*100;
-  ans= ans + " %";
+    ans= parseFloat(ans).toFixed(3);
+    ans= ans + " %";
  } else {
     answer = "Error: You must enter values for two variables.";
   }
