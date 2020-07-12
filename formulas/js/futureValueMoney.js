@@ -4,7 +4,7 @@ function futureValue() {
   var z = document.getElementById("Box3").value;
   var y= document.getElementById("Box4").value;
   if (i.trim() != '' && j.trim() != ''&& z.trim() != ''&& y.trim() != '') {
-    var ans = i* (Math.pow(1+(j/100/y), z*y));
+    var ans = parseFloat(i* (Math.pow(1+(j/100/y), z*y))).toFixed(2);
  } else {
     answer = "Error: You must enter values for four variables.";
   }
