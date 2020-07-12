@@ -2,41 +2,89 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Future Value - Formulacademy</title>
   <meta charset="utf-8">
-  <title> Future Value of the investment </title>
-  <script>
-    function futureValue() {
-      var i = document.getElementById("Box1").value;
-      var j = document.getElementById("Box2").value;
-      var z = document.getElementById("Box3").value;
-      var y= document.getElementById("Box4").value;
-      if (i.trim() != '' && j.trim() != ''&& z.trim() != ''&& y.trim() != '') {
-        var ans = i* (Math.pow(1+(j/100/y), z*y));
-     } else {
-        answer = "Error: You must enter values for four variables.";
-      }
-      document.getElementById('answer').textContent = ans;
-      document.getElementById('Box1').value = '';
-      document.getElementById('Box2').value='';
-      document.getElementById('Box3').value='';
-      document.getElementById('Box4').value='';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/futureValueMoney.js"></script>
 </head>
 
 <body>
-  <p>The time value of money is a basic financial concept that holds that money in the present is worth more than the same sum of money to be received in the future.
-      This is a specific formula can be used for calculating the future value of money so that it can be compared to the present value </p>
-  <p>Enter the present value of the investment</p>
-  <input type='number' id='Box1' step='0.000001' />
-  <p>Enter the interest rate in percentage (%)</p>
-  <input type='number' id='Box2' step='0.000001' />
-  <p>Enter the number of years to take into consideration</p>
-  <input type='number' id='Box3' step='0.000001' />
-  <p>Enter the number of compounding periods of interest per year</p>
-  <input type='number' id='Box4' step='0.000001' />
-  <button onClick='futureValue()'>Calculate</button>
-  <p>Result: <span id='answer'></span></p>
+
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Future Value</h1>
+        <img src="../../img/futureValueInvestment.png" class="img-fluid rounded mb-2" alt="Future Value">
+        <p class="lead text-fix">The time value of money is a basic financial concept that holds that money in the present is worth more than the same sum of money to be received in the future.
+          This is a specific formula that can be used for calculating the future value of money so that it can be compared to the present value.</p>
+      </div>
+    </section>
+
+    <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+      <div class="form-group">
+        <label for="Box1" class="text-fix">Present value:</label>
+        <input type="number" id="Box1" class="form-control text-fix" step="0.000001" placeholder="PV">
+      </div>
+      <div class="form-group">
+        <label for="Box2" class="text-fix">Interest rate in percentage:</label>
+        <input type="number" id="Box2" class="form-control text-fix" step="0.000001" placeholder="r">
+      </div>
+      <div class="form-group">
+        <label for="Box3" class="text-fix">Number of years:</label>
+        <input type="number" id="Box3" class="form-control text-fix" step="0.000001" placeholder="T">
+      </div>
+      <div class="form-group">
+        <label for="Box4" class="text-fix">Number of periods based on compounding frequency:</label>
+        <input type="number" id="Box4" class="form-control text-fix" step="0.000001" placeholder="m">
+      </div>
+      <button onClick="futureValue()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+      <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+    </form>
+
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
+  </section>
+
 </body>
 
 </html>
