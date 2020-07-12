@@ -100,7 +100,7 @@ form {
   align-items: center;
 }
 
-.inflation {
+.inflation, .moore {
   width: 50%;
   height: 50;
 }

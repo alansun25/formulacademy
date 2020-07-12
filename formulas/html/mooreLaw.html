@@ -2,45 +2,87 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Moore's Law - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Moore'sLaw </title>
-  <script>
-    function mooreLaw() {
-      var i = document.getElementById("Box1").value;
-      var j = document.getElementById("Box2").value;
-      if (i.trim() != '' && j.trim() != '') {
-      var ans = i* (Math.pow(2,j));
-      ans = parseFloat(ans).toFixed(3);
-     } else {
-        answer = "Error: You must enter values for two variables.";
-      }
-      document.getElementById('answer').textContent = ans;
-      document.getElementById('Box1').value = '';
-      document.getElementById('Box2').value='';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/moore.js"></script>
 </head>
 
 <body>
-  <p>Moore's law is the observation that the number of transistors in a dense integrated circuit (IC) doubles about every two years.</p>
-  <p>Enter the number of transistors in current year and the numbers of year between
-    the current and final year accordingly to find the number of transistors in the final year.</p>
-  <table>
 
-    <tr>
-      <th>current transistors</th>
-      <th>years between current and final</th>
-    </tr>
-    <tr>
-      <td><input type='number' id='Box1' step='0.000001' /></td>
-      <td><input type='number' id='Box2' step='0.000001' /></td>
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    </tr>
-  </table>
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Moore's Law</h1>
+        <img src="../../img/Moore'sLaw.png" class="img-fluid moore rounded mb-2" alt="Moore's Law">
+        <p class="lead text-fix">Moore's law is the observation that the number of transistors
+          in a dense integrated circuit (IC) doubles about every two years.</p>
+        <hr>
+        <p class="mt-3">Enter the number of transistors in current year and the number of years between
+          the current and final year accordingly to find the number of transistors in the final year:</p>
+      </div>
+    </section>
 
+    <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+      <div class="form-group">
+        <label for="Box1" class="text-fix">Current Transistors:</label>
+        <input type="number" id="Box1" class="form-control text-fix" step="0.000001" placeholder="Current">
+      </div>
+      <div class="form-group">
+        <label for="Box2" class="text-fix">Years:</label>
+        <input type="number" id="Box2" class="form-control text-fix" step="0.000001" placeholder="Years">
+      </div>
+      <button onClick="mooreLaw()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+      <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+    </form>
 
-  <button onClick='mooreLaw()'>Calculate</button>
-  <p>Result: <span id='answer'></span></p>
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
