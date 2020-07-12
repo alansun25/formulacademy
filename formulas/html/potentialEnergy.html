@@ -9,7 +9,7 @@
       var m = document.getElementById("Box1").value;
       var h = document.getElementById("Box2").value;
       if (m.trim() != '' && h.trim() != '') {
-      var ans = m*h*(9.8);
+      var ans = m*h*9.8;
       ans = parseFloat(ans).toFixed(3);
       ans= ans + " J";
      } else {
@@ -39,7 +39,7 @@
   </table>
 
 
-  <button onClick='kineticEnergy()'>Calculate</button>
+  <button onClick='potentialEnergy()'>Calculate</button>
   <p>Result: <span id='answer'></span></p>
 </body>
 

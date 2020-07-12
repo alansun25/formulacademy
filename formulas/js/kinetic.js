@@ -3,6 +3,7 @@ function kineticEnergy() {
   var v = document.getElementById("Box2").value;
   if (m.trim() != '' && v.trim() != '') {
   var ans = m*Math.pow(v,2)/2;
+  ans= parseFloat(ans).toFixed(3);
   ans= ans + " J";
  } else {
     answer = "Error: You must enter values for two variables.";
