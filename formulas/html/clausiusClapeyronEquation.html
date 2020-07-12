@@ -2,103 +2,98 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <title>Clasius-Clapeyron Equation - Formulacademy</title>
   <meta charset="utf-8">
-  <title>Gibbs Free Energy</title>
-  <script>
-
-    function clausiusClapeyron() {
-      var answer;
-      var temp1 = document.getElementById("temp1Box").value;
-      var temp2 = document.getElementById("temp2Box").value;
-      var pressure1 = document.getElementById("pressure1Box").value;
-      var pressure2 = document.getElementById("pressure2Box").value;
-      var deltaHVap = document.getElementById("deltaHVapBox").value;
-
-
-      if (temp1.trim() == '' && temp2.trim() != '' && pressure1.trim() != ''
-       && pressure2.trim() != '' && deltaHVap.trim() != '') {
-        deltaHVap = deltaHVap * 1000;
-        answer = Math.log(pressure2 / pressure1) * (8.314 / -deltaHVap) - 1/temp2;
-        answer = -1/answer;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Temperature 1 = " + answer + " K";
-      }
-       else if (temp2.trim() == '' && temp1.trim() != '' && pressure1.trim() != ''
-       && pressure2.trim() != '' && deltaHVap.trim() != '') {
-        deltaHVap = deltaHVap * 1000;
-        answer = Math.log(pressure2 / pressure1) * (8.314 / -deltaHVap) + 1/temp1;
-        answer = 1/answer;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Temperature 2 = " + answer + " K";
-      }
-      else if (pressure1.trim() == '' && temp2.trim() != '' && temp1.trim() != ''
-       && pressure2.trim() != '' && deltaHVap.trim() != '') {
-        deltaHVap = deltaHVap * 1000;
-        answer = ((deltaHVap / (8.314)) * (1/temp2 - 1/temp1)) + Math.log(pressure2);
-        answer = Math.exp(answer);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Pressure 1 = " + answer + " atm";
-      }
-       else if (pressure2.trim() == '' && temp2.trim() != '' && pressure1.trim() != ''
-       && temp1.trim() != '' && deltaHVap.trim() != '') {
-        deltaHVap = deltaHVap * 1000;
-        answer = ((-deltaHVap / (8.314)) * (1/temp2 - 1/temp1)) + Math.log(pressure1);
-        answer = Math.exp(answer);
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Pressure 2 = " + answer + " atm";
-      }
-       else if (deltaHVap.trim() == '' && temp2.trim() != '' && pressure1.trim() != ''
-       && pressure2.trim() != '' && temp1.trim() != '') {
-        answer = (Math.log(pressure2/pressure1)) * 8.314;
-        answer = answer / (1/temp1 - 1/temp2);
-        answer = answer * -0.0001;
-        answer = parseFloat(answer).toFixed(3);
-        answer = "Enthalpy of Vaporization = " + answer + " kJ/mol";
-      }
-      else {
-        answer = "Error: You must enter values for four variables.";
-      }
-
-      document.getElementById('answer').textContent =
-      answer;
-      document.getElementById('temp1Box').value = '';
-      document.getElementById('temp2Box').value = '';
-      document.getElementById('pressure1Box').value = '';
-      document.getElementById('pressure2Box').value = '';
-      document.getElementById('deltaHVapBox').value = '';
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/gradient.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/clausiusClapeyron.js"></script>
 </head>
 
 <body>
-  <p>The two-point form of the Clausis Clepeyron equation relates the vapor
-    pressures of a substance at two different temperatures, which depends on the
-    enthalpy of vaporization of the substance. The equation can also be used to
-    calculate the enthalpy of vaporization if the vapor pressures at two temperatures
-    are known.
-  </p>
+  <section class="page">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+      <div class="container-fluid ">
+        <a class="navbar-brand text-fix" href="../../index.html">Formulacademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-fix" href="../../calc.html">Calculators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fix" href="#"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-  <table>
-  <caption>Enter any four variables out of temperature 1, temperature 2, pressure
-    1, pressure 2, and enthalpy of vaporization to calculate the missing fifth variable.</caption>
-  <tr>
-    <th>Temperature 1 (K)</th>
-    <th>Temperature 2 (K) </th>
-    <th>Pressure 1 (atm)</th>
-    <th>Pressure 2 (atm)</th>
-    <th>Enthalpy of Vaporization (kJ/mol)</th>
-  </tr>
-  <tr>
-    <td><input type='number' id='temp1Box' step='0.000001' /></td>
-    <td><input type='number' id='temp2Box' step='0.000001' /></td>
-    <td><input type='number' id='pressure1Box' step='0.000001' /></td>
-    <td><input type='number' id='pressure2Box' step='0.000001' /></td>
-    <td><input type='number' id='deltaHVapBox' step='0.000001' /></td>
-  </tr>
-</table>
-  <button onClick='clausiusClapeyron()'>Calculate</button>
-  <p> <span id='answer'></span>
-  </p>
+    <section class="jumbotron text-center text-white">
+      <div class="container">
+        <h1 class="font-weight-bold">Clasius-Clapeyron Equation</h1>
+        <img src="../../img/clausiusClapeyronImage.png" class="img-fluid rounded mb-2" alt="Quadratic Formula">
+        <p class="lead text-fix">The two-point form of the Clausis Clepeyron equation relates the vapor
+          pressures of a substance at two different temperatures, which depends on the
+          enthalpy of vaporization of the substance. The equation can also be used to
+          calculate the enthalpy of vaporization if the vapor pressures at two temperatures
+          are known.</p>
+        <hr>
+        <p class="text-fix mt-3">Enter any four variables out of temperature 1, temperature 2, pressure
+          1, pressure 2, and enthalpy of vaporization to calculate the missing fifth variable:</p>
+      </div>
+    </section>
+
+    <form class="text-white calc-input" onkeypress="return event.keyCode != 13">
+      <div class="form-group">
+        <label for="temp1Box" class="text-fix">Temperature 1 (K):</label>
+        <input type="number" id="temp1Box" class="form-control text-fix" step="0.000001" placeholder="Temperature 1">
+      </div>
+      <div class="form-group">
+        <label for="temp2Box" class="text-fix">Temperature 2 (K):</label>
+        <input type="number" id="temp2Box" class="form-control text-fix" step="0.000001" placeholder="Temperature 2">
+      </div>
+      <div class="form-group">
+        <label for="pressure1Box" class="text-fix">Pressure 1 (atm):</label>
+        <input type="number" id="pressure1Box" class="form-control text-fix" step="0.000001" placeholder="Pressure 1">
+      </div>
+      <div class="form-group">
+        <label for="pressure2Box" class="text-fix">Pressure 2 (atm):</label>
+        <input type="number" id="pressure2Box" class="form-control text-fix" step="0.000001" placeholder="Pressure 2">
+      </div>
+      <div class="form-group">
+        <label for="deltaHVapBox" class="text-fix">Enthalpy of Vaporization (kJ/mol):</label>
+        <input type="number" id="deltaHVapBox" class="form-control text-fix" step="0.000001" placeholder="Enthalpy of Vaporization">
+      </div>
+      <button onClick="clausiusClapeyron()" type="button" class="btn btn-outline-light text-fix">Calculate</button>
+      <p class="mt-2"><strong class="text-fix">Result: <span id="answer" class="text-fix"></span></strong></p>
+    </form>
+
+    <div class="row content mb-5 text-center">
+      <div class="col-12 padding main">
+        <div>
+          <h1 class="display-4 name text-white font-weight-bold">Formulacademy</h1>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-light footer-text mb-5 text-center">
+      We're looking to add more formulas. <a href="mailto:mralansun@gmail.com" class="text-light footer-text underline">Let us know</a> what you want to see.
+    </footer>
+  </section>
+
 </body>
 
 </html>
