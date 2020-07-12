@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Parallel Plate Capacitor</title>
+  <script>
+    function findCapacitance() {
+      var answer;
+      var electricConstant = 8.85418782e-12;
+      var area = document.getElementById("areaBox").value;
+      var distance = document.getElementById("distanceBox").value;
+      var dielectricConstant = document.getElementById("dielectricConstantBox").value;
+      var capacitance = document.getElementById("capacitanceBox").value;
+
+      if (area.trim() == '' && distance.trim() != ''
+      && dielectricConstant.trim() != '' && capacitance.trim() != '') {
+        capacitance = capacitance * 0.000000000001;
+        distance = distance * 0.01;
+        answer = (capacitance * distance) / (dielectricConstant * electricConstant);
+        answer = answer * 10000;
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Area = " + answer + " square cm";
+      }
+      else if (distance.trim() == '' && area.trim() != ''
+      && dielectricConstant.trim() != '' && capacitance.trim() != '') {
+        capacitance = capacitance * 0.000000000001;
+        area = area * 0.0001;
+        answer = (dielectricConstant * electricConstant * area) / capacitance;
+        answer = answer * 100;
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Distance between Plates = " + answer + " cm";
+      }
+      else if (dielectricConstant.trim() == '' && distance.trim() != ''
+      && area.trim() != '' && capacitance.trim() != '') {
+        capacitance = capacitance * 0.000000000001;
+        area = area * 0.0001;
+        distance = distance * 0.01;
+        answer = (capacitance * distance) / (electricConstant * area);
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Dielectric Constant = " + answer;
+      }
+      else if (capacitance.trim() == '' && distance.trim() != ''
+      && area.trim() != '' && dielectricConstant.trim() != '') {
+        area = area * 0.0001;
+        distance = distance * 0.01;
+        answer = (dielectricConstant * electricConstant * area) / distance;
+        answer = answer * 1000000000000;
+        answer = parseFloat(answer).toFixed(3);
+        answer = "Capacitance = " + answer + " picofarads";
+      }
+      else {
+        answer = "Error: You must enter values for three variables.";
+      }
+
+      document.getElementById('answer').textContent =
+      answer;
+      document.getElementById('areaBox').value = '';
+      document.getElementById('distanceBox').value = '';
+      document.getElementById('dielectricConstantBox').value = '';
+      document.getElementById('capacitanceBox').value = '';
+    }
+  </script>
+</head>
+
+<body>
+  <p>A parallel plate capacitor consists of two conducting plates separated by a
+    dielectric, which inhibits the flow of electric charge between the plates. This
+  formula is used to calculate the capacitance of a parallel plate capacitor, a
+  measure of its ability to store charge. The capacitance is independent of the charge
+  and voltage, only depending on the dimensions of the plates and dielectric material. </p>
+
+  <table>
+  <caption>Enter any three variables out of area of the plates, distance between <thead>
+    plates, dieletric constant, and capacitance to calculate the fourth variable.
+    The dielectric constant of a vacuum is 1. </caption>
+  <tr>
+    <th>Area of Capacitor Plates (square cm)</th>
+    <th>Distance between Plates (cm)</th>
+    <th>Dielectric Constant (unitless)</th>
+    <th>Capacitance (picofarads)</th>
+
+  </tr>
+  <tr>
+    <td><input type='number' id='areaBox' step='0.000001' /></td>
+    <td><input type='number' id='distanceBox' step='0.000001' /></td>
+    <td><input type='number' id='dielectricConstantBox' step='0.000001' /></td>
+    <td><input type='number' id='capacitanceBox' step='0.000001' /></td>
+  </tr>
+</table>
+  <button onClick='findCapacitance()'>Calculate</button>
+  <p> <span id='answer'></span>
+  </p>
+</body>
+
+</html>
