@@ -3,6 +3,7 @@ function RuleOf72() {
   if (i > 1) {
     var ans = "Please enter a valid interest rate (a decimal number ≤ 1)."
   } else {
+    i = i * 100;
     var ans = parseFloat(72 / i).toFixed(3);
   }
   document.getElementById('answer').textContent = ans;
